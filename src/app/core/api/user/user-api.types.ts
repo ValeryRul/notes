@@ -5,10 +5,3 @@ export interface User {
   listMode: boolean;
   darkMode: boolean;
 }
-
-export const userQuery = `{
-  user {
-    name
-    email
-  }
-}`;

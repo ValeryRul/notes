@@ -13,20 +13,3 @@ export interface Todo {
   color: string;
   isCheckboxMode: boolean;
 }
-
-export const todosQuery = `{
-  todos {
-    id
-      title
-      notes {
-        text
-        isCompleted
-      }
-      labels {
-        id
-        name
-      }
-      color
-      isCheckboxMode
-  }
-}`;
