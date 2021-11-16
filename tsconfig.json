@@ -1,14 +1,26 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@appSharedModule": ["app/core/shared.module.ts"],
-      "@appLayouts/*": ["app/layout/*"],
-      "@appApi": ["app/core/api"],
-      "@appServices": ["app/core/services"],
-      "@appModules/*": ["app/modules/*"],
+      "@appSharedModule": [
+        "app/core/shared.module.ts"
+      ],
+      "@appLayouts/*": [
+        "app/layout/*"
+      ],
+      "@appApi/*": [
+        "app/core/api/*"
+      ],
+      "@appServices": [
+        "app/core/services"
+      ],
+      "@appModules/*": [
+        "app/modules/*"
+      ],
+      "@appModels/*": [
+        "app/core/models/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -25,8 +37,10 @@
     "module": "es2020",
     "lib": [
       "es2018",
-      "dom"
-    ]
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
