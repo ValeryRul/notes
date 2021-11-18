@@ -1,1 +1,86 @@
-// Will be added styles for buttons and links
+@import "../colors";
+
+.btn {
+  font-size: 1.1em;
+  background-color: $orange;
+  border: 1px solid $gray-lighter;
+  padding: 0 20px;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 25rem;
+  box-sizing: border-box;
+  font-weight: 600;
+  border-radius: 0.75rem;
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &-info {
+    background-color: $info;
+  }
+
+  &-secondary {
+    background-color: $white;
+    color: $primary;
+    box-shadow: inset 0px 0px 0px 1px $primary;
+  }
+
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &:disabled {
+    background-color: $gray-light;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $gray-light;
+  }
+
+}
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  &:focus {
+    border: none;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: $gray-lighter;
+    cursor: not-allowed;
+  }
+}
+
+.add-btn {
+  position: fixed;
+  font-size: 3rem;
+  bottom: 30px;
+  right: 30px;
+  padding: 0.5rem;
+  background-color: #3BA5CA66;
+  color: $white;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+
+  &:hover {
+    opacity: 0.8;
+    transform: rotate(270deg);
+    transition: all 0.5s ease-in-out;
+    color: $white;
+  }
+}
