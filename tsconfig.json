@@ -20,6 +20,9 @@
       ],
       "@appModels/*": [
         "app/core/models/*"
+      ],
+      "@appInterceptors/*": [
+        "app/core/interceptors/*"
       ]
     },
     "outDir": "./dist/out-tsc",
