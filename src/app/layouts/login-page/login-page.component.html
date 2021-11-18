@@ -1,0 +1,41 @@
+<div class="auth-container">
+    <div class="auth-container__body">
+           <div class="auth-container__element"><h4>Welcome Back!</h4></div>
+    
+            <div class="auth-container__element"><input class="form-control__input" type="email" placeholder="Email*" formControlName="email"></div>
+
+            <div *ngIf="form.get('email')!.touched && form.get('email')!.invalid">
+                <small *ngIf="form.get('email')!.errors!.required && form.get('email')!.touched!">
+                    Поле email является обязательным
+                </small>
+                <small *ngIf="form.get('email')!.errors!.email!">
+                    Вы ввели некорректный email
+            </small>
+            </div>
+
+            <div class="auth-container__element"><input class="form-control__input" type="password" placeholder="Password*" formControlName="password"></div>
+            <div *ngIf="form.get('password')!.touched && form.get('password')!.invalid">
+                <small *ngIf="form.get('password')!.errors!.required">
+                    Поле password является обязательным
+                </small>
+                <small *ngIf="form.get('password')!.errors!.minlength">
+                    Вы ввели некорректный password
+                </small>
+            </div>
+            <div class="auth-container__element">
+                <button class="btn" type="submit" [disabled]="form.invalid">Log In</button>
+            </div>
+           
+            <div class="auth-container__element"><small>
+                <p>Your user login & data will be deleted</p>
+                <p>on container restart, and happens so</p>
+                <p>often as I'm running this on Free Tier</p>
+            </small>
+        </div>
+    </div>
+    
+    <div class="auth-message-box">
+        Don't have an account? 
+        <a href="/reg">Register</a>
+    </div>
+</div>
