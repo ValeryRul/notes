@@ -1,0 +1,11 @@
+﻿{
+    "/api": {
+      "target": "https://googlekeep-anselm94.herokuapp.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "logLevel": "debug"
+    }
+}
