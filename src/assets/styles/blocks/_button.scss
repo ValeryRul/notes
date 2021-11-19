@@ -48,14 +48,9 @@
 }
 
 .btn-icon {
-  background-color: transparent;
   border: none;
-  padding: 0;
-
-  &:focus {
-    border: none;
-  }
-
+  background-color: inherit;
+  
   &:disabled {
     background-color: transparent;
     color: $gray-lighter;

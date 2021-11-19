@@ -1,5 +1,6 @@
+@import "../colors";
 
- .auth-container {
+.auth-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,3 +32,9 @@
     padding: 1rem;
     font-weight: bold;
  }
+
+
+.element-offset {
+    margin: 1rem;
+  }
+  
