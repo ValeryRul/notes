@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<gkc-loader></gkc-loader>
+<div>App component is here</div>
+<main [@routerTransition]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
