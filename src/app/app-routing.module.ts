@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RegistrationPageComponent } from './modules/auth/pages/registration-page/registration-page.component';
-
-const routes: Routes = [{ path: 'registration', component: RegistrationPageComponent }];
+const routes: Routes = [
+  {
+    path: 'registration',
+    loadChildren: () => import('./modules/registration/registration.module').then(m => m.RegistrationModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

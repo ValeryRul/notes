@@ -15,26 +15,21 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        padding: 2rem;
-        width: 30rem;
         border-style: outset;
         border-radius: 1rem;
         border-color: $gray-lighter;
         border-width: 0.2rem;
     }
-    &__element {
-        padding: 1rem;
-    }
   }
 
  .auth-message-box {
-    height: 5rem;
+    height: 3rem;
     padding: 1rem;
     font-weight: bold;
  }
 
 
-.element-offset {
-    margin: 1rem;
-  }
+._offset{
+    margin-bottom: 1rem;
+}
   

@@ -13,6 +13,9 @@ const COMMON_MODULES = [
 
 @NgModule({
     imports: [COMMON_MODULES],
-    exports: [COMMON_MODULES]
+    exports: [COMMON_MODULES],
+    declarations: [
+      
+    ]
 })
 export class SharedModule { }
