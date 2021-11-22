@@ -1,0 +1,14 @@
+.logout-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    right: 2rem;
+    top: 5rem;
+    width: 20rem;
+    height: 15rem;
+    background: white;
+    border-style: outset;
+    border-radius: 1rem;
+}

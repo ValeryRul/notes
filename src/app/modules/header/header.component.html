@@ -1,0 +1,21 @@
+<header class="header-container">
+    <div class="header-container__side-container">
+        <button class="btn-icon bi bi-list"></button>
+        <div>
+            <h3>Notes</h3>
+        </div>
+    </div>
+    <div class="header-container__middle-container">
+        <div class="header-container__input-container">
+            <button class="btn-icon bi bi-search"  type="submit"></button>
+            <input class="header-container__input" type="search" placeholder="Поиск">
+            <button class="btn-icon bi bi-x-lg" ></button>
+        </div>
+    </div>
+    <div class="header-container__side-container">
+        <button class="btn-icon bi bi-cloud-check"></button>
+        <button class="btn-icon bi bi-view-stacked"></button>
+        <button class="btn-icon bi bi-person" (click)="onAddLogoutComponent()"></button>
+    </div>
+    <gkc-logout *ngIf="isLogoutBlockActive"></gkc-logout>
+</header>

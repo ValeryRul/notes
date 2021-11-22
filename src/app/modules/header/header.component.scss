@@ -1,6 +1,6 @@
 .header-container{
     display: flex;
-    height: 6.5rem;
+    height: 5rem;
     border-bottom: 0.1rem solid #bbc0c4;
 
     &__middle-container {
@@ -11,22 +11,15 @@
         align-items:center;
     }
 
-    &__left-container{
-        flex: 1;
+    &__side-container{
+        flex: 0.75;
+        padding: 0 1rem;
         border: none;
         display: flex;
         align-items: center;
         justify-content: space-around;
     }
 
-    &__right-container{
-        flex: 0.5;
-        border: none;
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
 
     &__input-container{
         display: flex;
