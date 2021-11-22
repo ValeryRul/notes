@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
+import { SharedModule } from './core/shared.module';
 import { GraphQLModule } from '@appApi/graphql.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderModule } from './layouts/loader';
 import { LoadingScreenInterceptor } from '@appInterceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    SharedModule,
     GraphQLModule,
-    HttpClientModule,
     LoaderModule
   ],
   providers: [

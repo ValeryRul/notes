@@ -1,0 +1,26 @@
+@import '../colors';
+
+.form-field {
+  line-height: 3rem;
+  height: 3rem;
+  width: 12.5rem;
+  display: inline-block;
+  border-radius: 0.75rem;
+  border-width: 0.1rem;
+  border-color: $gray-light;
+  padding: 0 1.5rem;
+  outline: none;
+  margin: 1rem;
+
+  &.ng-invalid.ng-touched {
+    transition: all 0.3s ease;
+    border: 1px solid $danger;
+  }
+  &:focus {
+    border: 2px solid orange;
+  }
+}
+
+.__textarea {
+  min-height: 5rem;
+}

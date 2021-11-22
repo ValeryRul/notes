@@ -1,0 +1,20 @@
+<div class="auth-container">
+  <div class="auth-container__body" [formGroup]="form">
+    <h1>Hello!</h1>
+    <input class="form-field" type="text" placeholder="Name*" formControlName="name" />
+    <input class="form-field" type="email" placeholder="Email*" formControlName="email"/>
+    <input class="form-field" type="password" placeholder="Password*" formControlName="password" />
+    <button class="btn" type="submit" (click)="onRegister()">Register</button>
+    <div class="_offset">
+      <small>
+        <p>Your user login & data will be deleted</p>
+        <p>on container restart, and happens so</p>
+        <p>often as I'm running this on Free Tier</p>
+      </small>
+    </div>
+  </div>
+  <div class="auth-message-box">
+    Already have an account?
+    <a href="/login">Log In</a>
+  </div>
+</div>
