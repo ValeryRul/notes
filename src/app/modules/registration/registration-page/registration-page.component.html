@@ -1,9 +1,9 @@
 <div class="auth-container">
   <div class="auth-container__body" [formGroup]="form">
     <h1>Hello!</h1>
-    <input class="__input" type="text" placeholder="Name*" formControlName="name" />
-    <input class="__input" type="email" placeholder="Email*" formControlName="email"/>
-    <input class="__input" type="password" placeholder="Password*" formControlName="password" />
+    <input class="form-field" type="text" placeholder="Name*" formControlName="name" />
+    <input class="form-field" type="email" placeholder="Email*" formControlName="email"/>
+    <input class="form-field" type="password" placeholder="Password*" formControlName="password" />
     <button class="btn" type="submit" (click)="onRegister()">Register</button>
     <div class="_offset">
       <small>
