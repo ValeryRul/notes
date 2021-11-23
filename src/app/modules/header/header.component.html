@@ -1,21 +1,17 @@
-<header class="header-container">
-    <div class="header-container__side-container">
-        <button class="btn-icon bi bi-list"></button>
-        <div>
-            <h3>Notes</h3>
+<header class="header">
+    <div class="header__left-container">
+        <button class="btn-icon bi bi-list __offset"></button>
+        <h3 class="__offset">Notes</h3>
+        <div class="header__input-container __offset">
+            <i class="btn-icon bi bi-search" type="submit"></i>
+            <input class="header__input" type="text" placeholder="Поиск" [(ngModel)]="searchingField">
+            <button *ngIf=" searchingField != '' " class="btn-icon bi bi-x-lg" (click)="onClearSearchingField()"></button>
         </div>
     </div>
-    <div class="header-container__middle-container">
-        <div class="header-container__input-container">
-            <button class="btn-icon bi bi-search"  type="submit"></button>
-            <input class="header-container__input" type="search" placeholder="Поиск">
-            <button class="btn-icon bi bi-x-lg" ></button>
-        </div>
-    </div>
-    <div class="header-container__side-container">
+    <div class="header__right-container">
         <button class="btn-icon bi bi-cloud-check"></button>
         <button class="btn-icon bi bi-view-stacked"></button>
         <button class="btn-icon bi bi-person" (click)="onAddLogoutComponent()"></button>
     </div>
-    <gkc-logout *ngIf="isLogoutBlockActive"></gkc-logout>
+    <gkc-logout *ngIf="isLogoutBlockActive" (onLogoutEvent)="onLogout()"></gkc-logout>
 </header>

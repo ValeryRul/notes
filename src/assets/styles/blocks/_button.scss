@@ -1,4 +1,4 @@
-@import "../colors";
+@import '../colors';
 
 .btn {
   font-size: 1.1rem;
@@ -43,14 +43,13 @@
     outline: none;
     border: 1px solid $gray-light;
   }
-
 }
 
 .btn-icon {
   border: none;
   background-color: inherit;
   font-size: 1.5rem;
-  
+
   &:disabled {
     background-color: transparent;
     color: $gray-lighter;
@@ -64,7 +63,7 @@
   bottom: 30px;
   right: 30px;
   padding: 0.5rem;
-  background-color: #3BA5CA66;
+  background-color: #3ba5ca66;
   color: $white;
   border-radius: 50%;
   transition: all 0.5s ease-in-out;

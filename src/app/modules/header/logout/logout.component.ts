@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '@appServices';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'gkc-logout',
@@ -8,10 +6,13 @@ import { AuthService } from '@appServices';
   styleUrls: ['./logout.component.scss']
 })
 export class LogoutComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  @Output()
+  onLogoutEvent = new EventEmitter<boolean>();
 
-  onLogout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+  
+  constructor() {}
+
+  onLogoutClick() {
+    this.onLogoutEvent.emit();
   }
 }

@@ -1,21 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '@appServices';
+import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-header',
+  selector: 'gkc-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  constructor(private router: Router, private authService: AuthService) {}
 
-  constructor() { }
+  isLogoutBlockActive: boolean = false;
+  searchingField: string = '';
 
-  isLogoutBlockActive = false;
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  onAddLogoutComponent(){
+  onAddLogoutComponent() {
     this.isLogoutBlockActive = !this.isLogoutBlockActive;
   }
 
+  onLogout() {
+    this.onAddLogoutComponent();
+    this.authService
+      .logout()
+      .pipe(take(1))
+      .subscribe(() => this.router.navigateByUrl('/login'));
+  }
+
+  onClearSearchingField(): void {
+    this.searchingField = '';
+  }
 }
