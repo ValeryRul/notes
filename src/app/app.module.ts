@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'
 import { SharedModule } from './core/shared.module';
 import { GraphQLModule } from '@appApi/graphql.module';
-
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderModule } from './layouts/loader';
 import { LoadingScreenInterceptor } from '@appInterceptors/loading.interceptor';

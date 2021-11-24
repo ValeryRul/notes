@@ -1,23 +1,25 @@
-@import "../colors";
+@import '../colors';
 
 .btn {
-  font-size: 1.1rem;
-  background-color: $orange;
-  border: 1px solid $gray-lighter;
-  padding: 1rem;
-  width: 15rem;
-  box-sizing: border-box;
   font-weight: 600;
-  border-radius: 0.75rem;
-  margin: 1rem;
+  border-radius: 0.5rem;
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  &-info {
-    background-color: $info;
+  &-auth{
+    border: none;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: $orange;
+  }
+
+  &-logout{
+    padding: 0.75rem 1rem;
+    border: 0.1rem solid $gray;
+    background-color: inherit;
   }
 
   &-secondary {
@@ -26,12 +28,22 @@
     box-shadow: inset 0px 0px 0px 1px $primary;
   }
 
-  &-primary {
-    background-color: $primary;
-  }
 
   &-success {
     background-color: $success;
+  }
+
+  &-icon {
+    border: none;
+    background-color: inherit;
+    font-size: 1.5rem;
+    padding: 0;
+
+    &:disabled {
+      background-color: transparent;
+      color: $gray-lighter;
+      cursor: not-allowed;
+    }
   }
 
   &:disabled {
@@ -43,19 +55,8 @@
     outline: none;
     border: 1px solid $gray-light;
   }
-
 }
 
-.btn-icon {
-  border: none;
-  background-color: inherit;
-  
-  &:disabled {
-    background-color: transparent;
-    color: $gray-lighter;
-    cursor: not-allowed;
-  }
-}
 
 .add-btn {
   position: fixed;
@@ -63,7 +64,7 @@
   bottom: 30px;
   right: 30px;
   padding: 0.5rem;
-  background-color: #3BA5CA66;
+  background-color: #3ba5ca66;
   color: $white;
   border-radius: 50%;
   transition: all 0.5s ease-in-out;

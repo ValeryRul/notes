@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  height: 5rem;
+  border-bottom: 0.1rem solid #bbc0c4;
+
+  .left-container {
+    flex-grow: 10;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+  }
+
+  .right-container {
+    flex-grow: 1;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40rem;
+    height: 70%;
+    border: 0.1rem outset;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+._offset {
+  margin-left: 1rem;
+}
