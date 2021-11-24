@@ -6,13 +6,13 @@
   outline: none;
   box-sizing: border-box;
   border: none;
+
+  &.ng-invalid.ng-touched {
+    border: 1px solid $danger;
+  }
 }
 
-.__textarea {
-  min-height: 5rem;
-}
-
-.__auth-field{
+.auth-field{
   border: 0.1rem solid $gray-light;
   border-radius: 0.5rem;
 }

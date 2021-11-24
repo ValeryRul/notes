@@ -4,15 +4,15 @@
   border-bottom: 0.1rem solid #bbc0c4;
 
   .left-container {
-    flex: 10;
+    flex-grow: 10;
     border: none;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content:flex-start;
   }
 
   .right-container {
-    flex: 1;
+    flex-grow: 1;
     border: none;
     display: flex;
     align-items: center;
