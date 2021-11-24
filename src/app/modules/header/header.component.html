@@ -1,14 +1,14 @@
 <header class="header">
-    <div class="header__left-container">
-        <button class="btn-icon bi bi-list __offset"></button>
-        <h3 class="__offset">Notes</h3>
-        <div class="header__input-container __offset">
+    <div class="left-container">
+        <button class="btn-icon bi bi-list _offset"></button>
+        <h3 class="_offset">Notes</h3>
+        <div class="input-container _offset">
             <i class="btn-icon bi bi-search" type="submit"></i>
-            <input class="header__input" type="text" placeholder="Поиск" [(ngModel)]="searchingField">
+            <input class="w-100 form-control __search-field" type="text" placeholder="Поиск" [(ngModel)]="searchingField">
             <button *ngIf=" searchingField != '' " class="btn-icon bi bi-x-lg" (click)="onClearSearchingField()"></button>
         </div>
     </div>
-    <div class="header__right-container">
+    <div class="right-container">
         <button class="btn-icon bi bi-cloud-check"></button>
         <button class="btn-icon bi bi-view-stacked"></button>
         <button class="btn-icon bi bi-person" (click)="onAddLogoutComponent()"></button>

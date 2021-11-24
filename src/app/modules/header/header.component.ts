@@ -8,13 +8,11 @@ import { take } from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   isLogoutBlockActive: boolean = false;
   searchingField: string = '';
-
-  ngOnInit(): void {}
 
   onAddLogoutComponent() {
     this.isLogoutBlockActive = !this.isLogoutBlockActive;

@@ -7,9 +7,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class LogoutComponent {
   @Output()
-  onLogoutEvent = new EventEmitter<boolean>();
+  onLogoutEvent = new EventEmitter();
 
-  
   constructor() {}
 
   onLogoutClick() {
