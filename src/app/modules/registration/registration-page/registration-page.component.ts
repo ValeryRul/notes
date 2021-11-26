@@ -33,7 +33,7 @@ export class RegistrationPageComponent implements OnInit {
       .register(user)
       .pipe(take(1))
       .subscribe(() => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
       });
   }
 }
