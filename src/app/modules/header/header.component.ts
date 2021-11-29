@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserApiService } from '@appApi/user/user-api.service';
+import { User } from '@appApi/user/user-api.types';
 import { AuthService } from '@appServices';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -9,16 +12,18 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private router: Router, private authService: AuthService) {}
-
   isLogoutBlockActive: boolean = false;
   searchingField: string = '';
+  user!: Observable<User>;
 
-  onAddLogoutComponent() {
+  constructor(private router: Router, private authService: AuthService, private userApiService: UserApiService) {}
+
+  onAddLogoutComponent(): void {
+    this.user = this.userApiService.getUserInfo();
     this.isLogoutBlockActive = !this.isLogoutBlockActive;
   }
 
-  onLogout() {
+  onLogout(): void {
     this.onAddLogoutComponent();
     this.authService
       .logout()
