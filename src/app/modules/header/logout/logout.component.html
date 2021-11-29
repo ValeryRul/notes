@@ -1,9 +1,9 @@
 <div class="logout-container">
   <div class="btn-icon bi bi-person"></div>
-  <div class="text-center" *ngIf="!user; else another">
+  <div class="text-center" *ngIf="!user; else userContent">
     {{ message }}
   </div>
-  <ng-template #another>
+  <ng-template #userContent>
     <div class="text-center">
       <b>{{ user?.name }}</b>
       <br />
