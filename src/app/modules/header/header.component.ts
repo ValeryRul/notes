@@ -14,12 +14,12 @@ import { take } from 'rxjs/operators';
 export class HeaderComponent {
   isLogoutBlockActive: boolean = false;
   searchingField: string = '';
-  user!: Observable<User>;
+  user$!: Observable<User>;
 
   constructor(private router: Router, private authService: AuthService, private userApiService: UserApiService) {}
 
   onAddLogoutComponent(): void {
-    this.user = this.userApiService.getUserInfo();
+    this.user$ = this.userApiService.getUserInfo();
     this.isLogoutBlockActive = !this.isLogoutBlockActive;
   }
 

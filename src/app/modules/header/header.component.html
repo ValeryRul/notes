@@ -13,5 +13,5 @@
     <button class="btn-icon bi bi-view-stacked"></button>
     <button class="btn-icon bi bi-person" (click)="onAddLogoutComponent()"></button>
   </div>
-  <gkc-logout *ngIf="isLogoutBlockActive" (onLogoutEvent)="onLogout()" [user]="user | async"></gkc-logout>
+  <gkc-logout *ngIf="isLogoutBlockActive" (onLogoutEvent)="onLogout()" [user]="user$ | async"></gkc-logout>
 </header>
