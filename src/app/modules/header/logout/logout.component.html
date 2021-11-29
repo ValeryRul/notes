@@ -1,5 +1,14 @@
 <div class="logout-container">
-    <div class="btn-icon bi bi-person"></div>
-    <div>mail</div>
-    <button class="btn btn-logout" (click)="onLogoutClick()">Sign Out</button>
+  <div class="btn-icon bi bi-person"></div>
+  <div class="text-center" *ngIf="!user; else userContent">
+    {{ message }}
+  </div>
+  <ng-template #userContent>
+    <div class="text-center">
+      <b>{{ user?.name }}</b>
+      <br />
+      {{ user?.email }}
+    </div>
+  </ng-template>
+  <button class="btn btn-logout" (click)="onLogoutClick()">Sign Out</button>
 </div>
