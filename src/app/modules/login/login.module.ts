@@ -3,9 +3,11 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@appSharedModule';
 import { LoginPageComponent } from './login-page/login-page.component';
 
+const routes = [{ path: '', component: LoginPageComponent }];
+
 @NgModule({
   declarations: [LoginPageComponent],
-  imports: [SharedModule, RouterModule.forChild([{ path: '', component: LoginPageComponent }])],
+  imports: [SharedModule, RouterModule.forChild(routes)],
   providers: []
 })
 export class LoginModule {}
