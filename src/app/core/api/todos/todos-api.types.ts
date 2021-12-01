@@ -9,7 +9,7 @@ export interface Todo {
   id: string;
   title: string;
   notes: Note[];
-  labels: Label[];
-  color: string;
-  isCheckboxMode: boolean;
+  labels?: Label[];
+  color?: string;
+  isCheckboxMode?: boolean;
 }
