@@ -16,7 +16,7 @@ export class UserApiService extends BaseApiService{
  } 
   
   getUserInfo(): Observable<User> {
-    return this.get<any>(getUserQuery).pipe(map((res) => res.user));
+    return this.get(getUserQuery).pipe(map((res) => res.user as User));
   }
   
   updateUser(user: Partial<User>): Observable<Partial<User> | null> {

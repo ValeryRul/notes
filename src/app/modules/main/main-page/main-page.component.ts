@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { LabelsApiService } from '@appApi/labels/labels-api.service';
 
 @Component({
   selector: 'gkc-main-page',
@@ -7,7 +8,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent {
+  constructor(private todosApiService: LabelsApiService) {}
 
-  constructor() { }
-
+  ngOnInit(): void {
+    this.todosApiService.getAll().subscribe(
+      res => {console.info(res);}, 
+      err => { console.error(err);
+      })
+  }
 }
