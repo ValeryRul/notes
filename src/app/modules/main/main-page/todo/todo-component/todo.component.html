@@ -1,0 +1,13 @@
+<div class="todo-block" *ngFor="let todo of todos">
+  <input class="form-control w-100" type="text" value="{{ todo.title }}"/>
+  <div>
+    <textarea class="form-control textarea-field w-100" placeholder="Take a note">{{getTodoNote(todo)}}</textarea>
+  </div>
+  <div class="buttons-block">
+    <button class="btn-icon bi bi-palette"></button>
+    <button class="btn-icon bi bi-check-square"></button>
+    <button class="btn-icon bi bi-tag"></button>
+    <button class="btn-icon bi-file-earmark"></button>
+    <button class="btn-icon bi bi-trash" (click)="onDeleteTodo(todo.id)"></button>
+  </div>
+</div>

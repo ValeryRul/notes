@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="left-container">
+    <button class="btn-icon bi bi-list"></button>
+    <h3 class="_offset">Notes</h3>
+    <div class="input-container">
+      <i class="btn-icon bi bi-search _offset" type="submit"></i>
+      <input class="w-100 form-control" type="text" placeholder="Поиск" [(ngModel)]="searchingField" />
+      <button *ngIf="searchingField != ''" class="btn-icon bi bi-x-lg _offset" (click)="onClearSearchingField()"></button>
+    </div>
+  </div>
+  <div class="right-container">
+    <button class="btn-icon bi bi-cloud-check _offset"></button>
+    <button class="btn-icon bi bi-view-stacked"></button>
+    <button class="btn-icon bi bi-person _offset" (click)="onAddLogoutComponent()"></button>
+  </div>
+  <gkc-logout *ngIf="isLogoutBlockActive" (onLogoutEvent)="onLogout()" [user]="user$ | async"></gkc-logout>
+</header>

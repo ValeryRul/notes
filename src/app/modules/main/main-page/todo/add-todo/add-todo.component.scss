@@ -1,0 +1,15 @@
+@import 'src/assets/styles/_colors.scss';
+
+.action-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tools-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 5rem;
+}
