@@ -19,16 +19,22 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '2',
-        title: '2list',
+        title: '21list',
         notes: [
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '3',
@@ -37,7 +43,10 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '4',
@@ -46,7 +55,10 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '5',
@@ -55,7 +67,10 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '6',
@@ -64,7 +79,10 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       },
       {
         id: '7',
@@ -73,7 +91,10 @@ export class TodoContainerComponent {
           { text: 'egg', isCompleted: false },
           { text: 'milk', isCompleted: false },
           { text: 'meat', isCompleted: false }
-        ]
+        ],
+        labels: [],
+        color: 'default',
+        isCheckboxMode: false
       }
     );
   }
