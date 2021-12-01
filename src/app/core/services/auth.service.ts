@@ -42,8 +42,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return true;
-    // return localStorage.getItem(this.key) ? Number(localStorage.getItem(this.key)) - new Date().getTime() > 0 : false;
+    return localStorage.getItem(this.key) ? Number(localStorage.getItem(this.key)) - new Date().getTime() > 0 : false;
   }
 
   private baseRequest<T>(url: string, payload: T, errorMessage: string): Observable<any> {

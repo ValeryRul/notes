@@ -1,6 +1,6 @@
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export abstract class BaseApiService {
   constructor(private apollo: Apollo) {}
