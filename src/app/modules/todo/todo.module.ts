@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@appSharedModule';
-import { AddTodoComponent } from './add-todo/add-todo.component';
-import { TodoComponent } from './todo-component/todo.component';
-import { TodoContainerComponent } from './todo-container/todo-container.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { TodoComponent } from './components/todo-component/todo.component';
+import { TodoContainerComponent } from './components/todo-container/todo-container.component';
 
 @NgModule({
   declarations: [TodoComponent, AddTodoComponent, TodoContainerComponent],
