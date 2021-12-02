@@ -10,7 +10,6 @@ const routes = [{ path: '', component: MainPageComponent }];
 
 @NgModule({
   declarations: [MainPageComponent],
-  imports: [HeaderModule, TodoModule, SharedModule, RouterModule.forChild(routes)],
-  exports: [MainPageComponent, RouterModule]
+  imports: [HeaderModule, TodoModule, SharedModule, RouterModule.forChild(routes)]
 })
 export class MainModule {}
