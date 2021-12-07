@@ -1,12 +1,14 @@
-<input class="form-control w-100" type="text" placeholder="Title" />
-<div>
-  <textarea class="form-control textarea-field w-100" placeholder="Take a note"></textarea>
-</div>
-<div class="action-block">
-  <div class="tools-group">
-    <button class="btn-icon bi bi-palette"></button>
-    <button class="btn-icon bi bi-check-square"></button>
-    <button class="btn-icon bi bi-tag"></button>
+<input class="form-control w-100" type="text" placeholder="Title" (focus)="onExpandForm(true)" [(ngModel)]="noteTitle"/>
+<div *ngIf="isFormExpanded">
+  <div>
+    <textarea class="form-control textarea-field w-100" placeholder="Take a note" [(ngModel)]="noteText"></textarea>
   </div>
-  <button class="btn btn-secondary">Close</button>
+  <div class="action-block">
+    <div class="tools-group">
+      <button class="btn-icon bi bi-palette" *ngIf="false"></button>
+      <button class="btn-icon bi bi-check-square" *ngIf="false"></button>
+      <button class="btn-icon bi bi-tag" *ngIf="false"></button>
+    </div>
+    <button class="btn btn-secondary" (click)="onCreateTodo()">Close</button>
+  </div>
 </div>

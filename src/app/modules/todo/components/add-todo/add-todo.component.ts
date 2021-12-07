@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Todo } from '@appApi/todos/todos-api.types';
+
 
 @Component({
   selector: 'gkc-add-todo',
@@ -8,6 +10,34 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class AddTodoComponent{
 
-  constructor() { }
+  isFormExpanded: boolean = false;
+  noteText!: string;
+  noteTitle!: string;
+  
+  note: Todo = {
+    id: "",
+    title: "",
+    notes: [],
+    labels: [],
+    color: '',
+    isCheckboxMode: false
+  };
+
+  constructor() {
+  }
+
+  onExpandForm(flag: boolean){
+    this.isFormExpanded = flag;
+  }
+
+  convertTextToNoteArr(){
+    this.noteText.split("\n")
+  }
+
+  onCreateTodo(){
+    this.isFormExpanded = false;
+    if(this.noteText || this.noteTitle)
+    console.log(this.noteText, this.noteTitle)
+  }
 
 }

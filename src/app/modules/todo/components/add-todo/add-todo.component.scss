@@ -1,15 +1,24 @@
 @import 'src/assets/styles/_colors.scss';
 
-.action-block{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+:host {
+  display: block;
+  border: 0.1rem outset $gray-lighter;
+  border-radius: 1rem;
+  max-width: 40rem;
+  width: 100%;
+  padding: 1rem;
 }
 
-.tools-group{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 5rem;
+.action-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tools-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 5rem;
 }

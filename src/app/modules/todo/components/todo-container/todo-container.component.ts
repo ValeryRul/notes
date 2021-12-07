@@ -14,11 +14,11 @@ export class TodoContainerComponent {
     this.todos.push(
       {
         id: '1',
-        title: '1list',
+        title: 'todo1',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -26,11 +26,11 @@ export class TodoContainerComponent {
       },
       {
         id: '2',
-        title: '21list',
+        title: 'todo2',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -38,11 +38,11 @@ export class TodoContainerComponent {
       },
       {
         id: '3',
-        title: '3list',
+        title: 'todo3',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -50,11 +50,11 @@ export class TodoContainerComponent {
       },
       {
         id: '4',
-        title: '4list',
+        title: 'todo4',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -62,11 +62,11 @@ export class TodoContainerComponent {
       },
       {
         id: '5',
-        title: '5list',
+        title: 'todo5',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -74,11 +74,11 @@ export class TodoContainerComponent {
       },
       {
         id: '6',
-        title: '6list',
+        title: 'todo6',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
@@ -86,11 +86,11 @@ export class TodoContainerComponent {
       },
       {
         id: '7',
-        title: '7list',
+        title: 'todo7',
         notes: [
-          { text: 'egg', isCompleted: false },
-          { text: 'milk', isCompleted: false },
-          { text: 'meat', isCompleted: false }
+          { text: 'action1', isCompleted: false },
+          { text: 'action2', isCompleted: false },
+          { text: 'action3', isCompleted: false }
         ],
         labels: [],
         color: 'default',
