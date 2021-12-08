@@ -1,6 +1,4 @@
 <gkc-add-todo></gkc-add-todo>
 <div class="todo-list-container">
-  <ng-container *ngFor="let todo of todos">
-    <gkc-todo [todo]="todo"></gkc-todo>
-  </ng-container>
+  <gkc-todo-item *ngFor="let todo of todos" [todo]="todo"> </gkc-todo-item>
 </div>
