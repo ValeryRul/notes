@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseApiService } from '@appApi/base-api.service';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Label } from './labels-api.types';
 import { createLabelQuery, deleteLabelQuery, getAllLabelsQuery } from './labels.queries';
 
@@ -14,14 +15,14 @@ export class LabelsApiService extends BaseApiService {
   }
 
   getAll(): Observable<Label[]> {
-    return this.get<Label[]>(getAllLabelsQuery);
+    return this.get(getAllLabelsQuery).pipe(map((res) => res.labels as Label[]));
   }
 
-  createLabel(label: Partial<Label>): Observable<Partial<Label> | null> {
-    return this.mutate<Partial<Label>>(createLabelQuery, label);
+  createLabel(label: Partial<Label>): Observable<Label> {
+    return this.mutate<Partial<Label>>(createLabelQuery, label).pipe(map((res) => res.createLabel as Label));
   }
 
-  deleteLabel(id: string): Observable<Partial<Label> | null> {
-    return this.mutate<Partial<Label>>(deleteLabelQuery, { id });
+  deleteLabel(id: string): Observable<string> {
+    return this.mutate<Partial<Label>>(deleteLabelQuery, { id }).pipe(map((res) => res.deleteLabel.id as string));
   }
 }
