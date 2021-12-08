@@ -5,9 +5,9 @@ import { map } from 'rxjs/operators';
 export abstract class BaseApiService {
   constructor(private apollo: Apollo) {}
 
-  protected get<T>(query: string): Observable<T> {
+  protected get(query: string): Observable<any> {
     return this.apollo
-      .query<T>({
+      .query({
         query: gql`
           ${query}
         `
@@ -15,14 +15,14 @@ export abstract class BaseApiService {
       .pipe(map((result) => result.data));
   }
 
-  protected mutate<T>(mutation: string, body: T):Observable<T | null> {
+  protected mutate<T>(mutation: string, body: T): Observable<any> {
     return this.apollo
-      .mutate<T>({
+      .mutate({
         mutation: gql`
           ${mutation}
         `,
         variables: { ...body }
       })
-      .pipe(map((result) => result.data || null));
+      .pipe(map((result) => result.data));
   }
 }

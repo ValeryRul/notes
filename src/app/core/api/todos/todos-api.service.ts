@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseApiService } from '@appApi/base-api.service';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Todo } from './todos-api.types';
 import { copyTodoQuery, createTodoQuery, deleteTodoQuery, getAlltodosQuery, updateTodoQuery } from './todos.queries';
 
@@ -14,22 +15,22 @@ export class TodosApiService extends BaseApiService {
   }
 
   getAll(): Observable<Todo[]> {
-    return this.get<Todo[]>(getAlltodosQuery);
+    return this.get(getAlltodosQuery).pipe(map((res) => res.todos as Todo[]));
   }
 
-  createTodo(todo: Partial<Todo>): Observable<Partial<Todo> | null> {
-    return this.mutate<Partial<Todo>>(createTodoQuery, todo);
+  createTodo(todo: Partial<Todo>): Observable<Todo> {
+    return this.mutate<Partial<Todo>>(createTodoQuery, todo).pipe(map((res) => res.createTodo as Todo));
   }
 
-  updateTodo(todo: Todo): Observable<Todo | null> {
-    return this.mutate<Todo>(updateTodoQuery, todo);
+  updateTodo(todo: Todo): Observable<Todo> {
+    return this.mutate<Todo>(updateTodoQuery, todo).pipe(map((res) => res.updateTodo as Todo));
   }
 
-  deleteTodo(id: string): Observable<Partial<Todo | null>> {
-    return this.mutate<Partial<Todo>>(deleteTodoQuery, {id});
+  deleteTodo(id: string): Observable<string> {
+    return this.mutate<Partial<Todo>>(deleteTodoQuery, { id }).pipe(map((res) => res.deleteTodo.id as string));
   }
-  
-  copyTodo(id: string): Observable<Partial<Todo | null>> {
-    return this.mutate<Partial<Todo>>(copyTodoQuery, {id});
+
+  copyTodo(id: string): Observable<Todo> {
+    return this.mutate<Partial<Todo>>(copyTodoQuery, { id }).pipe(map((res) => res.copyTodo as Todo));
   }
 }
