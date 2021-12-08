@@ -1,5 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Todo } from '@appApi/todos/todos-api.types';
+import { Note, Todo } from '@appApi/todos/todos-api.types';
+import { TodoModelService } from '@appModules/todo/shared/services/todo-model.service';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'gkc-todo-container',
@@ -10,8 +13,9 @@ import { Todo } from '@appApi/todos/todos-api.types';
 export class TodoContainerComponent {
   todos: Todo[] = [];
 
-  constructor() {
-    this.todos.push(
+  constructor(private todoModelService: TodoModelService) {
+    this.getAllTodos().pipe(take(1)).subscribe(todos => console.log(todos))
+    /* this.todos.push(
       {
         id: '1',
         title: 'todo1',
@@ -96,6 +100,14 @@ export class TodoContainerComponent {
         color: 'default',
         isCheckboxMode: false
       }
-    );
+    ); */
+  }
+
+  onCreateTodo(todo: Todo) {
+    this.todoModelService.createTodo(todo);
+  }
+
+  getAllTodos(): Observable<Todo[]> {
+    return this.todoModelService.getAll();
   }
 }

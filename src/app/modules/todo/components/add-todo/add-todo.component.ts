@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Todo } from '@appApi/todos/todos-api.types';
-
+import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Note, Todo } from '@appApi/todos/todos-api.types';
 
 @Component({
   selector: 'gkc-add-todo',
@@ -8,36 +7,44 @@ import { Todo } from '@appApi/todos/todos-api.types';
   styleUrls: ['./add-todo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddTodoComponent{
+export class AddTodoComponent {
+
+  @Output()
+  onCreateTodo = new EventEmitter();
+
+  todoNotes!: string;
 
   isFormExpanded: boolean = false;
-  noteText!: string;
-  noteTitle!: string;
-  
-  note: Todo = {
-    id: "",
-    title: "",
+
+  todo: Todo = {
+    id: '',
+    title: '',
     notes: [],
     labels: [],
-    color: '',
+    color: 'default',
     isCheckboxMode: false
   };
 
-  constructor() {
-  }
+  constructor() {}
 
-  onExpandForm(flag: boolean){
+  onExpandForm(flag: boolean) {
     this.isFormExpanded = flag;
   }
 
-  convertTextToNoteArr(){
-    this.noteText.split("\n")
+  onCreateTodoClick(): void {
+    if (this.todo.title || this.todoNotes) {
+      if (this.todoNotes) {
+        this.setNotes(this.todoNotes);
+      }
+      this.onCreateTodo.emit(this.todo);
+    }
   }
 
-  onCreateTodo(){
-    this.isFormExpanded = false;
-    if(this.noteText || this.noteTitle)
-    console.log(this.noteText, this.noteTitle)
+  setNotes(todoNote: string) {
+    this.todo.notes = this.convertFromTextToArrayOfNotes(todoNote);
   }
 
+  convertFromTextToArrayOfNotes(todoNote: string): Note[] {
+    return todoNote.split('\n').map((todoNote) => ({ text: todoNote, isCompleted: false }));
+  }
 }

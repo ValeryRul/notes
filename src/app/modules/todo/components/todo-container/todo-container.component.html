@@ -1,6 +1,7 @@
-<gkc-add-todo></gkc-add-todo>
+<gkc-add-todo (onCreateTodo)='onCreateTodo($event)'></gkc-add-todo>
 <div class="todo-list-container">
-  <ng-container *ngFor="let todo of todos">
+
+<!--   <ng-container *ngFor="let todo of todos">
     <gkc-todo [todo]="todo"></gkc-todo>
-  </ng-container>
+  </ng-container> -->
 </div>
