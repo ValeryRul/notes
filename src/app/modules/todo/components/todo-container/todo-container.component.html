@@ -1,4 +1,9 @@
 <gkc-add-todo (onCreateTodo)="onCreateTodo($event)"></gkc-add-todo>
 <div class="todo-list-container">
-    <gkc-todo-item *ngFor="let todo of todoList | async" [todo]="todo"></gkc-todo-item> 
+  <gkc-todo-item
+    *ngFor="let todo of todoList$ | async"
+    [todo]="todo"
+    (onDeleteTodo)="onDeleteTodo($event)"
+    (onCopyTodo)="onCopyTodo($event)"
+  ></gkc-todo-item>
 </div>

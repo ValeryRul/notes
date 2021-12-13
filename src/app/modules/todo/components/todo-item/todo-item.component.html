@@ -6,6 +6,6 @@
   <button class="btn-icon bi bi-palette" *ngIf="false"></button>
   <button class="btn-icon bi bi-check-square" *ngIf="false"></button>
   <button class="btn-icon bi bi-tag" *ngIf="false"></button>
-  <button class="btn-icon bi-file-earmark" *ngIf="false"></button>
-  <button class="btn-icon bi bi-trash" *ngIf="false"></button>
+  <button class="btn-icon bi-file-earmark" (click)="onCopyTodoClick(todo.id)"></button>
+  <button class="btn-icon bi bi-trash" (click)="onDeleteTodoClick(todo.id)"></button>
 </div>

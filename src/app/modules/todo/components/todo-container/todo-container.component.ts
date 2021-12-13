@@ -11,10 +11,10 @@ import { take } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoContainerComponent implements OnInit {
-  todoList!: Observable<Todo[]>;
+  todoList$!: Observable<Todo[]>;
 
   constructor(private todoModelService: TodoModelService) {
-    this.todoList = this.todoModelService.todoList;
+    this.todoList$ = this.todoModelService.todoList$;
   }
 
   ngOnInit(): void {
@@ -22,10 +22,18 @@ export class TodoContainerComponent implements OnInit {
   }
 
   onCreateTodo(todo: CreateTodo): void {
-    this.todoModelService.createTodo(todo).pipe(take(1)).subscribe();
+    this.todoModelService.createTodo$(todo).pipe(take(1)).subscribe();
   }
 
   loadAllTodos(): void {
-    this.todoModelService.loadTodoList().pipe(take(1)).subscribe();
+    this.todoModelService.loadTodoList$().pipe(take(1)).subscribe();
+  }
+
+  onDeleteTodo(id: string): void{
+    this.todoModelService.deleteTodo$(id).pipe(take(1)).subscribe();
+  }
+
+  onCopyTodo(id: string): void{
+    this.todoModelService.copyTodo$(id).pipe(take(1)).subscribe();
   }
 }
