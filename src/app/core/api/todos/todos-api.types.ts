@@ -5,11 +5,18 @@ export interface Note {
   isCompleted: boolean;
 }
 
-export interface Todo {
-  id: string;
+interface BaseTodo {
   title: string;
+  labels: Label[];
+  color: string;
+  isCheckboxMode: boolean;
+}
+
+export interface CreateTodo extends BaseTodo {
+  notes: string[];
+}
+
+export interface Todo extends BaseTodo {
+  id: string;
   notes: Note[];
-  labels?: Label[];
-  color?: string;
-  isCheckboxMode?: boolean;
 }

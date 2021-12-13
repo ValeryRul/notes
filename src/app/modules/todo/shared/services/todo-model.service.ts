@@ -1,31 +1,26 @@
 import { Injectable } from '@angular/core';
 import { TodosApiService } from '@appApi/todos/todos-api.service';
-import { Todo } from '@appApi/todos/todos-api.types';
-import { TodoModule } from '@appModules/todo/todo.module';
-import { Observable } from 'rxjs';
+import { CreateTodo, Todo } from '@appApi/todos/todos-api.types';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class TodoModelService {
-    
+  private _todoList$ = new BehaviorSubject<Todo[]>([]);
+
+  get todoList(): Observable<Todo[]> {
+    return this._todoList$.asObservable();
+  }
+
   constructor(private todosApiService: TodosApiService) {}
 
-  getAll(): Observable<Todo[]> {
-    return this.todosApiService.getAll();
+  loadTodoList(): Observable<Todo[]> {
+    return this.todosApiService.getAll().pipe(tap((todoList) => this._todoList$.next(todoList)));
   }
 
-  createTodo(todo: Todo) {
-    this.todosApiService.createTodo(todo);
-  }
-
-  updateTodo(todo: Todo) {
-    this.todosApiService.updateTodo(todo);
-  }
-
-  deleteTodo(id: string) {
-    this.todosApiService.deleteTodo(id);
-  }
-
-  copyTodo(id: string) {
-    this.todosApiService.copyTodo(id);
+  createTodo(todo: CreateTodo): Observable<Todo> {
+    return this.todosApiService
+      .createTodo(todo)
+      .pipe(tap((todo: Todo) => this._todoList$.next([...this._todoList$.getValue(), todo])));
   }
 }

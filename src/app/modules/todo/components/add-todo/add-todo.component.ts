@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { Note, Todo } from '@appApi/todos/todos-api.types';
+import { CreateTodo, Note, Todo } from '@appApi/todos/todos-api.types';
 
 @Component({
   selector: 'gkc-add-todo',
@@ -8,7 +8,6 @@ import { Note, Todo } from '@appApi/todos/todos-api.types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddTodoComponent {
-
   @Output()
   onCreateTodo = new EventEmitter();
 
@@ -16,8 +15,7 @@ export class AddTodoComponent {
 
   isFormExpanded: boolean = false;
 
-  todo: Todo = {
-    id: '',
+  todo: CreateTodo = {
     title: '',
     notes: [],
     labels: [],
@@ -32,20 +30,23 @@ export class AddTodoComponent {
   }
 
   onCreateTodoClick(): void {
-    this.onExpandForm(false);
     if (this.todo.title || this.todoNotes) {
       if (this.todoNotes) {
         this.setNotes(this.todoNotes);
       }
       this.onCreateTodo.emit(this.todo);
+      this.clearForm();
     }
+    this.onExpandForm(false);
   }
 
   setNotes(todoNote: string) {
-    this.todo.notes = this.convertFromTextToArrayOfNotes(todoNote);
+    this.todo.notes = todoNote.split('\n');
   }
 
-  convertFromTextToArrayOfNotes(todoNote: string): Note[] {
-    return todoNote.split('\n').map((todoNote) => ({ text: todoNote, isCompleted: false }));
+  clearForm(): void {
+    this.todo.title = '';
+    this.todo.notes = [];
+    this.todoNotes = '';
   }
 }
