@@ -27,7 +27,7 @@ export class TodoModelService {
   deleteTodo$(id: string): Observable<string> {
     return this.todosApiService
       .deleteTodo(id)
-      .pipe(tap((id) => this._todoList$.next([...this._todoList$.getValue().filter((todo) => todo.id != id)])));
+      .pipe(tap((id) => this._todoList$.next(this._todoList$.getValue().filter((todo) => todo.id != id))));
   }
 
   copyTodo$(id: string): Observable<Todo> {

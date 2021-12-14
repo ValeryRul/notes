@@ -9,10 +9,10 @@ import { Note, Todo } from '@appApi/todos/todos-api.types';
 })
 export class TodoItemComponent {
   @Output()
-  onDeleteTodo = new EventEmitter();
+  onDeleteTodo = new EventEmitter<string>();
 
   @Output()
-  onCopyTodo = new EventEmitter();
+  onCopyTodo = new EventEmitter<string>();
 
   @Input() todo!: Todo;
 

@@ -9,7 +9,7 @@ import { CreateTodo, Note, Todo } from '@appApi/todos/todos-api.types';
 })
 export class AddTodoComponent {
   @Output()
-  onCreateTodo = new EventEmitter();
+  onCreateTodo = new EventEmitter<CreateTodo>();
 
   todoNotes!: string;
 
