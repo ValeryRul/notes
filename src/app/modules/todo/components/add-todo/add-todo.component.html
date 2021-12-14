@@ -1,7 +1,13 @@
-<input class="form-control w-100" type="text" placeholder="Title" (focus)="onExpandForm(true)"/>
+<input
+  class="form-control w-100"
+  type="text"
+  placeholder="Title"
+  (focus)="onExpandForm(true)"
+  [(ngModel)]="todo.title"
+/>
 <div *ngIf="isFormExpanded">
   <div>
-    <textarea class="form-control textarea-field w-100" placeholder="Take a note"></textarea>
+    <textarea class="form-control textarea-field w-100" placeholder="Take a note" [(ngModel)]="todoNotes"></textarea>
   </div>
   <div class="action-block">
     <div class="tools-group">

@@ -3,7 +3,7 @@ import { BaseApiService } from '@appApi/base-api.service';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Todo } from './todos-api.types';
+import { CreateTodo, Todo } from './todos-api.types';
 import { copyTodoQuery, createTodoQuery, deleteTodoQuery, getAlltodosQuery, updateTodoQuery } from './todos.queries';
 
 @Injectable({
@@ -18,8 +18,8 @@ export class TodosApiService extends BaseApiService {
     return this.get(getAlltodosQuery).pipe(map((res) => res.todos as Todo[]));
   }
 
-  createTodo(todo: Partial<Todo>): Observable<Todo> {
-    return this.mutate<Partial<Todo>>(createTodoQuery, todo).pipe(map((res) => res.createTodo as Todo));
+  createTodo(todo: CreateTodo): Observable<Todo> {
+    return this.mutate<CreateTodo>(createTodoQuery, todo).pipe(map((res) => res.createTodo as Todo));
   }
 
   updateTodo(todo: Todo): Observable<Todo> {

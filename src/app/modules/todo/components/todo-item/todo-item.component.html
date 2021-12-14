@@ -1,11 +1,11 @@
 <input class="form-control w-100" type="text" [value]="todo.title" />
 <div>
-  <textarea class="form-control textarea-field w-100" placeholder="Take a note">{{ getTodoNote(todo.notes) }}</textarea>
+  <textarea class="form-control textarea-field w-100">{{ getTodoNote(todo.notes) }}</textarea>
 </div>
 <div class="buttons-block">
   <button class="btn-icon bi bi-palette" *ngIf="false"></button>
   <button class="btn-icon bi bi-check-square" *ngIf="false"></button>
   <button class="btn-icon bi bi-tag" *ngIf="false"></button>
-  <button class="btn-icon bi-file-earmark" *ngIf="false"></button>
-  <button class="btn-icon bi bi-trash" *ngIf="false"></button>
+  <button class="btn-icon bi-file-earmark" (click)="onCopyTodoClick(todo.id)"></button>
+  <button class="btn-icon bi bi-trash" (click)="onDeleteTodoClick(todo.id)"></button>
 </div>
