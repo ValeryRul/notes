@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { CreateTodo, Todo } from '@appApi/todos/todos-api.types';
+import { Component, ChangeDetectionStrategy, OnInit, ViewChild } from '@angular/core';
 import { TodoModelService } from '@appModules/todo/shared/services/todo-model.service';
+import { CreateTodo, Todo } from 'app/core/types/todos-api.types';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -12,6 +12,9 @@ import { take } from 'rxjs/operators';
 })
 export class TodoContainerComponent implements OnInit {
   todoList$!: Observable<Todo[]>;
+  updatedTodo!: Todo;
+
+  private selectedTodoId!: string;
 
   constructor(private todoModelService: TodoModelService) {
     this.todoList$ = this.todoModelService.todoList$;
@@ -25,15 +28,29 @@ export class TodoContainerComponent implements OnInit {
     this.todoModelService.createTodo$(todo).pipe(take(1)).subscribe();
   }
 
+  onFocusIn(todo: Todo): void {
+    console.log("here");
+    if (!this.selectedTodoId) {
+      this.selectedTodoId = todo.id;
+    }
+    if (!this.selectedTodoId || this.selectedTodoId === todo.id) {
+      return;
+    }
+    console.log("submitted");
+    this.todoModelService.updateTodo$(todo).pipe(take(1)).subscribe();
+  }
+
   loadAllTodos(): void {
     this.todoModelService.loadTodoList$().pipe(take(1)).subscribe();
   }
 
-  onDeleteTodo(id: string): void{
-    this.todoModelService.deleteTodo$(id).pipe(take(1)).subscribe();
-  }
+  onDeleteTodo(id: string): void {
+    console.log("delete");  
+/*     this.todoModelService.deleteTodo$(id).pipe(take(1)).subscribe();
+ */  }
 
-  onCopyTodo(id: string): void{
+  onCopyTodo(id: string): void {
     this.todoModelService.copyTodo$(id).pipe(take(1)).subscribe();
   }
+
 }

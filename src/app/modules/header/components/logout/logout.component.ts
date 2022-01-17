@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { User } from '@appApi/user/user-api.types';
+import { User } from 'app/core/types/user-api.types';
 import { Observable } from 'rxjs';
 
 @Component({

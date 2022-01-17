@@ -3,7 +3,7 @@ import { BaseApiService } from '@appApi/base-api.service';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from './user-api.types';
+import { User } from '../../types/user-api.types';
 import { getUserQuery, updateUserQuery } from './user.queries';
 
 @Injectable({
@@ -16,10 +16,10 @@ export class UserApiService extends BaseApiService{
  } 
   
   getUserInfo(): Observable<User> {
-    return this.get(getUserQuery).pipe(map((res) => res.user as User));
+    return this.get$(getUserQuery).pipe(map((res) => res.user as User));
   }
   
   updateUser(user: Partial<User>): Observable<Partial<User> | null> {
-    return this.mutate<Partial<User>>(updateUserQuery, user);
+    return this.mutate$<Partial<User>>(updateUserQuery, user);
   }
 }

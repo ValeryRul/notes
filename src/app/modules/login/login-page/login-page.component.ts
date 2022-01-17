@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
       password: this.form.value.password
     };
     this.authService
-      .login(user)
+      .login$(user)
       .pipe(take(1))
       .subscribe(() => {
         this.router.navigate(['/']);

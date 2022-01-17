@@ -1,5 +1,6 @@
+import { NotExpr } from '@angular/compiler';
 import { Component, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { CreateTodo, Note, Todo } from '@appApi/todos/todos-api.types';
+import { CreateTodo, Note} from 'app/core/types/todos-api.types';
 
 @Component({
   selector: 'gkc-add-todo',
@@ -41,12 +42,16 @@ export class AddTodoComponent {
   }
 
   setNotes(todoNote: string) {
-    this.todo.notes = todoNote.split('\n');
+    this.todo.notes = this.convertTextToNoteArray(todoNote);
   }
 
   clearForm(): void {
     this.todo.title = '';
     this.todo.notes = [];
     this.todoNotes = '';
+  }
+
+  convertTextToNoteArray(noteText: string): Note[] {
+    return noteText.split('\n').map((note) => ({ text: note, isCompleted: false }));
   }
 }

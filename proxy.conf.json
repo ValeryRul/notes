@@ -1,6 +1,6 @@
 ﻿{
     "/api": {
-      "target": "https://googlekeep-anselm94.herokuapp.com",
+      "target": "http://localhost:8080",
       "secure": true,
       "changeOrigin": true,
       "pathRewrite": {

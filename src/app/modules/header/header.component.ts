@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserApiService } from '@appApi/user/user-api.service';
-import { User } from '@appApi/user/user-api.types';
+import { User } from 'app/core/types/user-api.types';
 import { AuthService } from '@appServices';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'gkc-header',
@@ -16,7 +15,7 @@ export class HeaderComponent {
   searchingField: string = '';
   user$!: Observable<User>;
 
-  constructor(private router: Router, private authService: AuthService, private userApiService: UserApiService) {
+  constructor(private authService: AuthService, private userApiService: UserApiService) {
     this.user$ = this.userApiService.getUserInfo();
   }
 
@@ -26,10 +25,8 @@ export class HeaderComponent {
 
   onLogout(): void {
     this.onAddLogoutComponent();
-    this.authService
-      .logout()
-      .pipe(take(1))
-      .subscribe(() => this.router.navigateByUrl('/login'));
+    this.authService.logout();
+    window.location.reload()
   }
 
   onClearSearchingField(): void {
