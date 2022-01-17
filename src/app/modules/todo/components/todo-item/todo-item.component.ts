@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { Note, Todo } from '@appApi/todos/todos-api.types';
+import { Note, Todo } from 'app/core/types/todos-api.types';
+
 
 @Component({
   selector: 'gkc-todo-item',
@@ -9,22 +10,37 @@ import { Note, Todo } from '@appApi/todos/todos-api.types';
 })
 export class TodoItemComponent {
   @Output()
-  onDeleteTodo = new EventEmitter<string>();
+  deleteTodo = new EventEmitter<string>();
 
   @Output()
-  onCopyTodo = new EventEmitter<string>();
+  copyTodo = new EventEmitter<string>();
+
+  @Output()
+  getTodoWithUpdates = new EventEmitter<Todo>();
+
+  @Output()
+  focusIn = new EventEmitter<Todo>();
 
   @Input() todo!: Todo;
 
-  getTodoNote(notes: Note[]): string {
+  convertNoteArrayToText(notes: Note[]): string {
     return notes.reduce((noteText: string, note: Note) => noteText + note.text + '\n', '').trim();
   }
 
   onDeleteTodoClick(id: string): void {
-    this.onDeleteTodo.emit(id);
+    this.deleteTodo.emit(id);
   }
 
   onCopyTodoClick(id: string): void {
-    this.onCopyTodo.emit(id);
+    console.log("copy");
+    this.copyTodo.emit(id);
+  }
+
+  onTodoFocusOut(event: FocusEvent): void {
+    console.log("sdsd");
+/*     if (!event.relatedTarget) {
+      console.log('focus out')
+      this.focusIn.emit(this.todo)
+    } */
   }
 }

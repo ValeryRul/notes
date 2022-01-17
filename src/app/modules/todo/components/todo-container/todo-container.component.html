@@ -3,7 +3,8 @@
   <gkc-todo-item
     *ngFor="let todo of todoList$ | async"
     [todo]="todo"
-    (onDeleteTodo)="onDeleteTodo($event)"
-    (onCopyTodo)="onCopyTodo($event)"
+    (deleteTodo)="onDeleteTodo($event)"
+    (copyTodo)="onCopyTodo($event)"
+    (focusIn)="onFocusIn($event)"
   ></gkc-todo-item>
 </div>

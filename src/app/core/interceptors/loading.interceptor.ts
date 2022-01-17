@@ -19,5 +19,4 @@ export class LoadingScreenInterceptor implements HttpInterceptor {
         this.loadingScreenService.startLoading();
         return next.handle(request).pipe(finalize(() => this.loadingScreenService.stopLoading()));
     }
-
 }

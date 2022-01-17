@@ -7,7 +7,6 @@ const routes = [{ path: '', component: LoginPageComponent }];
 
 @NgModule({
   declarations: [LoginPageComponent],
-  imports: [SharedModule, RouterModule.forChild(routes)],
-  providers: []
+  imports: [SharedModule, RouterModule.forChild(routes)]
 })
 export class LoginModule {}

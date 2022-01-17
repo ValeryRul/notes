@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 export abstract class BaseApiService {
   constructor(private apollo: Apollo) {}
 
-  protected get(query: string): Observable<any> {
+  protected get$(query: string): Observable<any> {
     return this.apollo
       .query({
         query: gql`
@@ -15,7 +15,7 @@ export abstract class BaseApiService {
       .pipe(map((result) => result.data));
   }
 
-  protected mutate<T>(mutation: string, body: T): Observable<any> {
+  protected mutate$<T>(mutation: string, body: T): Observable<any> {
     return this.apollo
       .mutate({
         mutation: gql`

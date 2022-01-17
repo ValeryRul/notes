@@ -1,4 +1,4 @@
-import { Label } from '@appApi/labels/labels-api.types';
+import { Label } from 'app/core/types/labels-api.types';
 
 export interface Note {
   text: string;
@@ -13,7 +13,7 @@ interface BaseTodo {
 }
 
 export interface CreateTodo extends BaseTodo {
-  notes: string[];
+  notes: Note[];
 }
 
 export interface Todo extends BaseTodo {
