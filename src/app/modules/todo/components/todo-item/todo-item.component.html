@@ -1,7 +1,7 @@
 <div tabindex="-1" (focusin)="focusIn.emit(todo)" (focusout)="onTodoFocusOut($event)">
   <input class="form-control w-100" type="text" [(ngModel)]="todo.title"/>
   <div>
-    <textarea class="form-control textarea-field w-100">{{ convertNoteArrayToText(todo.notes) }}</textarea>
+    <textarea class="form-control textarea-field w-100" [(ngModel)] = "todo.notesText"></textarea>
   </div>
   <div class="buttons-block">
     <button class="btn-icon bi bi-palette" *ngIf="false"></button>

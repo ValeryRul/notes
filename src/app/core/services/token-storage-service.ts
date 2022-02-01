@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { JwtResponse } from '@appModels/jwt-response.model';
 
 const TOKEN_KEY = 'AuthToken';
-const EMAIL_KEY = 'AuthEmail';
 const EXPIRATION_DATE_KEY = 'ExpirationDate';
 
 
@@ -24,15 +23,6 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN_KEY);
   }
   
-  saveEmail(email: string): void {
-    localStorage.removeItem(EMAIL_KEY);
-    localStorage.setItem(EMAIL_KEY, email);
-  }
-
-  getEmail(): string | null {
-    return localStorage.getItem(EMAIL_KEY);
-  }
-
   saveExpirationDate(date: string): void {
     localStorage.removeItem(EXPIRATION_DATE_KEY);
     localStorage.setItem(EXPIRATION_DATE_KEY, date);
@@ -43,7 +33,6 @@ export class TokenStorageService {
   }
 
   saveJwtResponse(jwtResponse: JwtResponse): void {
-    this.saveEmail(jwtResponse.email);
     this.saveExpirationDate(jwtResponse.expirationDate);
     this.saveToken(jwtResponse.token);
   }

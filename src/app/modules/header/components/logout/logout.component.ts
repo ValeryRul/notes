@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from 'app/core/types/user-api.types';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'gkc-logout',

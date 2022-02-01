@@ -33,6 +33,7 @@ export class RegistrationPageComponent implements OnInit {
       .register$(user)
       .pipe(take(1))
       .subscribe(() => {
+        console.log('inside')
         this.router.navigate(['/']);
       });
   }

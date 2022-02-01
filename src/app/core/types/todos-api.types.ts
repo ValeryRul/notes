@@ -5,7 +5,7 @@ export interface Note {
   isCompleted: boolean;
 }
 
-interface BaseTodo {
+export interface BaseTodo {
   title: string;
   labels: Label[];
   color: string;
@@ -17,6 +17,8 @@ export interface CreateTodo extends BaseTodo {
 }
 
 export interface Todo extends BaseTodo {
-  id: string;
+  id: number;
   notes: Note[];
 }
+
+
